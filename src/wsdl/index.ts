@@ -685,6 +685,9 @@ export class WSDL {
     let n;
     // start building out XML string.
     if (Array.isArray(obj)) {
+      if (!xmlnsAttrib) {
+        xmlnsAttrib = ' xmlns:' + nsPrefix + '="' + nsURI + '"';
+      }
       let nonSubNameSpace = '';
       let emptyNonSubNameSpaceForArray = false;
       const nameWithNsRegex = /^([^:]+):([^:]+)$/.exec(name);
